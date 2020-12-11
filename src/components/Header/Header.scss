@@ -1,0 +1,14 @@
+.header{
+  background-color: var(--color-neutrals-1000);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  padding: 8px 0;
+  .header__container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
