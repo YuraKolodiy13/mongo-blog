@@ -5,6 +5,10 @@ import Login from "./pages/Auth/Login";
 import Register from "./pages/Auth/Register";
 import Header from "./components/Header/Header";
 import {Route, Switch} from "react-router-dom";
+import 'antd/dist/antd.css';
+import './assets/styles/globals.scss'
+import Discover from "./pages/Discover/Discover";
+import Add from "./pages/Add/Add";
 
 const App = () => {
 
@@ -26,21 +30,18 @@ const App = () => {
 
   return (
     <div className="App">
-      <form onSubmit={addPost}>
-        <input type="text" name='title' value={state.title} onChange={onHandleChange}/>
-        <input type="text" name='text' value={state.text} onChange={onHandleChange}/>
-        <button type='submit'>save</button>
-      </form>
-
-
       <div className="container">
-        <Header/>
-        <Switch>
-          {/*<Route path="/" component={Homepage} exact />*/}
-          <Route path='/login' component={Login}/>
-          <Route path='/register' component={Register}/>
+        <div className="container">
+          <Header/>
+          <Switch>
+            {/*<Route path="/" component={Homepage} exact />*/}
+            <Route path='/login' component={Login}/>
+            <Route path='/register' component={Register}/>
+            <Route path='/discover' component={Discover}/>
+            <Route path='/add' component={Add}/>
 
-        </Switch>
+          </Switch>
+        </div>
       </div>
     </div>
   );

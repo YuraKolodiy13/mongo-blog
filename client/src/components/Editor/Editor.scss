@@ -1,0 +1,62 @@
+.quill{
+  .ql-container.ql-snow{
+    border: none;
+    background: var(--color-grey-5);
+    color: var(--color-main-text);
+  }
+  #tab-panel{
+    span{
+      font-size: 17px;
+      cursor: pointer;
+      margin: 2px;
+      height: 20px;
+    }
+  }
+  .ql-picker.ql-size{
+    width: 80px;
+  }
+  .ql-formats:last-of-type{
+    margin-right: 0;
+  }
+  .menu-dropdown{
+    display: block;
+    position: static!important;
+    width: 100%;
+    left: 0!important;
+  }
+  #tab-toolbar .active {
+    border-color: var(--color-primary-default);
+  }
+}
+.ql-size-large{
+  font-size: 1.5em;
+}
+.ql-size-small{
+  font-size: 0.75em;
+}
+#emoji-palette{
+  top: 0!important;
+  right: 0!important;
+  left: auto!important;
+}
+.post-container,
+.quill{
+  .ap{
+    text-indent: 0;
+    background: none;
+    margin: 0;
+    overflow: visible;
+    display: inline-block;
+    font-size: 14px;
+    width: auto;
+    height: auto;
+  }
+  .ql-emojiblot{
+    line-height: 1.4;
+  }
+}
+.create-group-scrollable-content{
+  .quill{
+    min-height: 170px;
+  }
+}

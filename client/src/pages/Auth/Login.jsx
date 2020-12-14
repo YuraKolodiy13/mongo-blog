@@ -1,10 +1,9 @@
 import {useState} from 'react';
 import './index.scss'
-import Button from "@material-ui/core/Button";
 import {useDispatch, useSelector} from "react-redux";
 import {loginRequest, resetErrors} from "../../actions/auth";
 import {useHistory} from "react-router-dom";
-import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
+import {Form, Button, Input} from "antd";
 
 const Login = () => {
 
@@ -32,39 +31,45 @@ const Login = () => {
   return (
     <div className='login'>
       <h2 className="heading">Login</h2>
-      <ValidatorForm onSubmit={submitLogin} onError={submitLoginError} className='login__form'>
+      <Form onFinish={submitLogin} className='login__form'>
         <div className="login__field modal__field">
-          <TextValidator
-            value={state.email}
-            name='email'
-            type="email"
-            label='email'
-            variant="outlined"
+          <Form.Item
+            name="email"
             onChange={onHandleChange}
-            validators={['required']}
-            errorMessages={['This field is required']}
-          />
+            value={state.email}
+            rules={[
+              {
+                required: true,
+                type: 'email',
+                // message: 'Please input your email!',
+              },
+            ]}
+          >
+            <Input name="email" placeholder="Email"/>
+          </Form.Item>
         </div>
         <div className="login__field modal__field">
-          <TextValidator
-            value={state.password}
-            name='password'
-            type='password'
-            label='password'
-            variant="outlined"
+          <Form.Item
+            name="password"
             onChange={onHandleChange}
-            validators={['required']}
-            errorMessages={['This field is required']}
-          />
+            value={state.email}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+          >
+            <Input.Password name="password" placeholder="Password"/>
+          </Form.Item>
         </div>
         <Button
-          variant="contained"
-          type='submit'
+          htmlType='submit'
           className='button'
         >
           Login
         </Button>
-      </ValidatorForm>
+      </Form>
     </div>
   )
 };

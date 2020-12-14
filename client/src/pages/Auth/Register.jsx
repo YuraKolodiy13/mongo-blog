@@ -1,10 +1,9 @@
 import {useState} from 'react';
 import './index.scss'
-import Button from "@material-ui/core/Button";
 import {useDispatch} from "react-redux";
 import {registerRequest} from "../../actions/auth";
 import {useHistory} from "react-router-dom";
-import {TextValidator, ValidatorForm} from "react-material-ui-form-validator";
+import { Form, Input, Button } from 'antd';
 
 const Register = () => {
 
@@ -29,39 +28,46 @@ const Register = () => {
   return (
     <div className='login'>
       <h2 className="heading">Register</h2>
-      <ValidatorForm onSubmit={submitLogin} className='login__form'>
+      <Form onFinish={submitLogin} className='login__form'>
         <div className="login__field modal__field">
-          <TextValidator
-            value={state.email}
-            name='email'
-            type="email"
-            label='email'
-            variant="outlined"
+          <Form.Item
+            label="Email"
+            name="email"
             onChange={onHandleChange}
-            validators={['required']}
-            errorMessages={['This field is required']}
-          />
+            value={state.email}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your email!',
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
         </div>
         <div className="login__field modal__field">
-          <TextValidator
-            value={state.password}
-            name='password'
-            type='password'
-            label='password'
-            variant="outlined"
+          <Form.Item
+            label="Password"
+            name="password"
             onChange={onHandleChange}
-            validators={['required']}
-            errorMessages={['This field is required']}
-          />
+            value={state.email}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your password!',
+              },
+            ]}
+          >
+            <Input.Password />
+          </Form.Item>
         </div>
         <Button
-          variant="contained"
-          type='submit'
+          htmlType='submit'
           className='button'
         >
           Register
         </Button>
-      </ValidatorForm>
+      </Form>
     </div>
   )
 };
