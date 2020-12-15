@@ -1,11 +1,12 @@
 .header{
-  background-color: var(--color-neutrals-1000);
+  background-color: #fff;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9;
   padding: 20px 0;
+  border-bottom: 1px solid #000;
   .header__container{
     .nav{
       display: flex;

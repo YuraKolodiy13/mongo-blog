@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 
 const Header = () => {
 
-  const isLogin = useSelector(state => state.auth.login);
+  const isLogin = useSelector(state => state.auth.userId);
 
   return (
     <header className='header'>
@@ -20,6 +20,9 @@ const Header = () => {
 
             <li>
               <Link to='/discover'>Discover</Link>
+            </li>
+            <li>
+              <Link to='/people'>People</Link>
             </li>
             {!isLogin && (
               <>

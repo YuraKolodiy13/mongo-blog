@@ -11,6 +11,7 @@ const Register = () => {
   const history = useHistory();
 
   const [state, setState] = useState({
+    name: '',
     email: '',
     password: ''
   });
@@ -31,23 +32,37 @@ const Register = () => {
       <Form onFinish={submitLogin} className='login__form'>
         <div className="login__field modal__field">
           <Form.Item
-            label="Email"
+            name="name"
+            onChange={onHandleChange}
+            value={state.name}
+            rules={[
+              {
+                required: true,
+                message: 'Please input your name!',
+              },
+            ]}
+          >
+            <Input name="name" placeholder="Name"/>
+          </Form.Item>
+        </div>
+        <div className="login__field modal__field">
+          <Form.Item
             name="email"
             onChange={onHandleChange}
             value={state.email}
             rules={[
               {
                 required: true,
-                message: 'Please input your email!',
+                type: 'email',
+                // message: 'Please input your email!',
               },
             ]}
           >
-            <Input />
+            <Input name="email" placeholder="Email"/>
           </Form.Item>
         </div>
         <div className="login__field modal__field">
           <Form.Item
-            label="Password"
             name="password"
             onChange={onHandleChange}
             value={state.email}
@@ -58,7 +73,7 @@ const Register = () => {
               },
             ]}
           >
-            <Input.Password />
+            <Input.Password name="password" placeholder="Password"/>
           </Form.Item>
         </div>
         <Button

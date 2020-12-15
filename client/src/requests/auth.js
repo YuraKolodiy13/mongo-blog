@@ -11,3 +11,15 @@ export const doRegisterApi = data => {
     `/users/register`, data
   )
 };
+
+export const getUserApi = id => {
+  return service.get(
+    `/users/${id}`,
+  )
+};
+
+export const getAllUsersApi = () => {
+  return service.get(
+    `/users`,
+  )
+};

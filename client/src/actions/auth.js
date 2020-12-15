@@ -15,5 +15,15 @@ export const LOGOUT_REQUEST_SUCCESS = 'LOGOUT_REQUEST_SUCCESS';
 export const LOGOUT_REQUEST_FAILED = 'LOGOUT_REQUEST_FAILED';
 export const logoutRequest = defaultActionCreator(LOGOUT_REQUEST, 'data');
 
+export const GET_USER_REQUEST = 'GET_USER_REQUEST';
+export const GET_USER_REQUEST_SUCCESS = 'GET_USER_REQUEST_SUCCESS';
+export const GET_USER_REQUEST_FAILED = 'GET_USER_REQUEST_FAILED';
+export const getUserRequest = defaultActionCreator(GET_USER_REQUEST, 'data');
+
+export const GET_ALL_USERS_REQUEST = 'GET_ALL_USERS_REQUEST';
+export const GET_ALL_USERS_REQUEST_SUCCESS = 'GET_ALL_USERS_REQUEST_SUCCESS';
+export const GET_ALL_USERS_REQUEST_FAILED = 'GET_ALL_USERS_REQUEST_FAILED';
+export const getAllUsersRequest = defaultActionCreator(GET_ALL_USERS_REQUEST, 'data');
+
 export const RESET_ERRORS = 'RESET_ERRORS';
 export const resetErrors = defaultActionCreator(RESET_ERRORS, 'data');

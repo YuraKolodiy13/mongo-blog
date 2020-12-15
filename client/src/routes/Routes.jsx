@@ -5,20 +5,22 @@ import Register from "../pages/Auth/Register";
 import Discover from "../pages/Discover/Discover";
 import Add from "../pages/Add/Add";
 import {useSelector} from "react-redux";
+import People from "../pages/People/People";
 
 const Routes = () => {
 
-  const isLogin = useSelector(state => state.auth.login);
+  const userId = useSelector(state => state.auth.userId);
 
   const PublicRoute = ({ auth, component: Component, render, ...rest }) => {
-    if (isLogin) {
+    if (userId) {
       return <Redirect to='/home' />;
     }
     return <Route {...rest} render={(props) => <Component {...props} />} />;
   };
 
   const PrivateRoute = ({ auth, component: Component, render, ...rest }) => {
-    if (!isLogin) {
+    console.log(userId, 'userId')
+    if (!userId) {
       return <Redirect to='/login' />;
     }
     return <Route {...rest} render={(props) => <Component {...props} />} />;
@@ -29,6 +31,7 @@ const Routes = () => {
       <PublicRoute path='/login' component={Login}/>
       <PublicRoute path='/register' component={Register}/>
       <PrivateRoute path='/discover' component={Discover}/>
+      <PrivateRoute path='/people' component={People}/>
       <PrivateRoute path='/add' component={Add}/>
     </Switch>
   )
