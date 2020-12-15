@@ -7,6 +7,7 @@ export function* doLogin(action) {
   try {
     const response = yield call(doLoginApi, action.data);
     yield put({ type: authActions.LOGIN_REQUEST_SUCCESS, data: response });
+    localStorage.setItem('token', response.data.token);
   } catch (e) {
     yield put({ type: authActions.LOGIN_REQUEST_FAILED, error: e.response.data.message });
   }

@@ -9,6 +9,7 @@ import 'antd/dist/antd.css';
 import './assets/styles/globals.scss'
 import Discover from "./pages/Discover/Discover";
 import Add from "./pages/Add/Add";
+import Routes from "./routes/Routes";
 
 const App = () => {
 
@@ -35,10 +36,7 @@ const App = () => {
           <Header/>
           <Switch>
             {/*<Route path="/" component={Homepage} exact />*/}
-            <Route path='/login' component={Login}/>
-            <Route path='/register' component={Register}/>
-            <Route path='/discover' component={Discover}/>
-            <Route path='/add' component={Add}/>
+            <Routes/>
 
           </Switch>
         </div>

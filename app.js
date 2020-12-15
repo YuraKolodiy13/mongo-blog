@@ -49,7 +49,7 @@ db.connection.on('connected', function () {
   const app = express();
 
   app.listen(process.env.PORT, () => {
-    console.log(`DOPE 360 API started on port 8000`);
+    console.log(`API started on port 8000`);
   });
 });
 
