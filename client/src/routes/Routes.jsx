@@ -6,6 +6,7 @@ import Discover from "../pages/Discover/Discover";
 import Add from "../pages/Add/Add";
 import {useSelector} from "react-redux";
 import People from "../pages/People/People";
+import Profile from "../pages/Profile/Profile";
 
 const Routes = () => {
 
@@ -19,7 +20,6 @@ const Routes = () => {
   };
 
   const PrivateRoute = ({ auth, component: Component, render, ...rest }) => {
-    console.log(userId, 'userId')
     if (!userId) {
       return <Redirect to='/login' />;
     }
@@ -33,6 +33,7 @@ const Routes = () => {
       <PrivateRoute path='/discover' component={Discover}/>
       <PrivateRoute path='/people' component={People}/>
       <PrivateRoute path='/add' component={Add}/>
+      <PrivateRoute path='/profile/:id' component={Profile}/>
     </Switch>
   )
 };

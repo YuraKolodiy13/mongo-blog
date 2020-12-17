@@ -1,10 +1,11 @@
 import {
-  GET_ALL_USERS_REQUEST_SUCCESS,
+  GET_ALL_USERS_REQUEST_SUCCESS, GET_USER_REQUEST_SUCCESS,
   LOGIN_REQUEST_SUCCESS,
   REGISTER_REQUEST_SUCCESS
 } from "../actions/auth";
 
 const initialState = {
+  me: {},
   userId: localStorage.getItem('userId'),
   users: []
 };
@@ -22,6 +23,12 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         users: action.data
+      };
+
+    case GET_USER_REQUEST_SUCCESS:
+      return {
+        ...state,
+        me: action.data
       };
 
 

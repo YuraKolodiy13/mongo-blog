@@ -17,7 +17,7 @@ const People = () => {
     <div className='people'>
       <div className="people__items">
         {users.map(item =>
-          <UserCard item={item} className='people__item'/>
+          <UserCard key={item._id} item={item} className='people__item'/>
         )}
       </div>
     </div>

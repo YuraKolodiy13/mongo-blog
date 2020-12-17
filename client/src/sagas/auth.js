@@ -28,7 +28,7 @@ export function* doRegister(action) {
 export function* getUser(action) {
   try {
     const response = yield call(getUserApi, action.data);
-    yield put({ type: authActions.GET_USER_REQUEST_SUCCESS, data: response });
+    yield put({ type: authActions.GET_USER_REQUEST_SUCCESS, data: response.data });
   } catch (e) {
     yield put({ type: authActions.GET_USER_REQUEST_FAILED, error: e.response.data.message });
   }

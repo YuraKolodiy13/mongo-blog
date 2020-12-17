@@ -13,7 +13,7 @@ router.post('/register', async (req, res, next) => {
   try {
     const response = await user.save();
     generateJwtTokenAndUserIdPair(user, function (err, result) {
-      return res.status(200).json(result);
+      return res.status(200).json({response, result});
     });
   }catch (e) {
     res.status(500).json(e);
@@ -25,7 +25,7 @@ router.post('/login', async (req, res, next) => {
 
   if(user){
     generateJwtTokenAndUserIdPair(user, function (err, result) {
-      return res.status(200).json(result);
+      return res.status(200).json({user, result});
     });
   }else {
     res.status(404).json(`User doesn't exist`)
@@ -38,7 +38,7 @@ router.get('/', async (req, res, next) => {
 });
 
 router.get('/:id', async (req, res, next) => {
-  const user = await Users.findOne(req.body);
+  const user = await Users.findOne({_id: req.params.id});
   res.status(200).json(user)
 });
 
