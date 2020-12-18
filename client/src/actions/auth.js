@@ -25,5 +25,15 @@ export const GET_ALL_USERS_REQUEST_SUCCESS = 'GET_ALL_USERS_REQUEST_SUCCESS';
 export const GET_ALL_USERS_REQUEST_FAILED = 'GET_ALL_USERS_REQUEST_FAILED';
 export const getAllUsersRequest = defaultActionCreator(GET_ALL_USERS_REQUEST, 'data');
 
+export const FOLLOW_USER_REQUEST = 'FOLLOW_USER_REQUEST';
+export const FOLLOW_USER_REQUEST_SUCCESS = 'FOLLOW_USER_REQUEST_SUCCESS';
+export const FOLLOW_USER_REQUEST_FAILED = 'FOLLOW_USER_REQUEST_FAILED';
+export const followUserRequest = defaultActionCreator(FOLLOW_USER_REQUEST, 'data');
+
+export const UNFOLLOW_USER_REQUEST = 'UNFOLLOW_USER_REQUEST';
+export const UNFOLLOW_USER_REQUEST_SUCCESS = 'UNFOLLOW_USER_REQUEST_SUCCESS';
+export const UNFOLLOW_USER_REQUEST_FAILED = 'UNFOLLOW_USER_REQUEST_FAILED';
+export const unfollowUserRequest = defaultActionCreator(UNFOLLOW_USER_REQUEST, 'data');
+
 export const RESET_ERRORS = 'RESET_ERRORS';
 export const resetErrors = defaultActionCreator(RESET_ERRORS, 'data');

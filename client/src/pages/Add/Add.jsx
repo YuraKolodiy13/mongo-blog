@@ -1,18 +1,18 @@
 import {useState} from "react";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {addPostRequest} from "../../actions/posts";
 import Editor from "../../components/Editor/Editor";
 
 const Add = () => {
 
   const dispatch = useDispatch();
-
+  const userId = useSelector(state => state.auth.userId);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
 
   const addPost = (e) => {
     e.preventDefault();
-    dispatch(addPostRequest({title, text}));
+    dispatch(addPostRequest({title, text, userId}));
   };
 
 

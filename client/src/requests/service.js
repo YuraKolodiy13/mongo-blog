@@ -21,9 +21,10 @@ class Service {
   get(path, params, callback) {
     return this.service.get(path, {
       params,
-      // headers: {
-      //   'Access-Control-Allow-Origin': '*'
-      // }
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Access-Control-Allow-Origin': '*'
+      }
     }).then(
       (response) => callback ? callback(response.status, response.data) : response
     );
@@ -36,6 +37,7 @@ class Service {
       responseType: 'json',
       data: payload,
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Access-Control-Allow-Origin': '*'
       }
     }).then(response => callback ? callback(response.status, response.data) : response);
@@ -48,6 +50,7 @@ class Service {
       responseType: 'json',
       data: payload,
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Access-Control-Allow-Origin': '*'
       }
     }).then(response => callback ? callback(response.status, response.data) : response);
@@ -59,9 +62,10 @@ class Service {
       url: path,
       responseType: 'json',
       data: payload,
-      // headers: {
-      //   'Access-Control-Allow-Origin': '*'
-      // }
+      headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        'Access-Control-Allow-Origin': '*'
+      }
     }).then((response) => callback ? callback(response.status, response.data) : response);
   }
 
@@ -72,6 +76,7 @@ class Service {
       responseType: 'json',
       data: payload,
       headers: {
+        'Authorization': `Bearer ${localStorage.getItem('token')}`,
         'Access-Control-Allow-Origin': '*'
       }
     }).then((response) => callback ? callback(response.status, response.data) : response);

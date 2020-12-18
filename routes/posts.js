@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
   const post = new Post({
     title: req.body.title,
     text: req.body.text,
-    author: req.body.author,
+    authorId: req.body.userId,
   });
 
   try {

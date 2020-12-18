@@ -34,35 +34,6 @@ const Header = () => {
                 <li>
                   <Link to='/add'>Add</Link>
                 </li>
-                <div className="user-profile-picture header-user-img">
-                  <img
-                    src={me.avatar}
-                    alt={me.name}
-                  />
-                </div>
-                <div
-                  // className="menu-dropdown menu-dropdown-sorting-comments"
-                  className="menu-dropdown profile-info"
-                  role="listbox"
-                  style={{
-                    width: "320px",
-                    minWidth: 88,
-                    lineHeight: "40px",
-                    cursor: "pointer"
-                  }}
-                >
-                  <div className='current-user-picture'>
-                  <img src={me.avatar} alt={me.name}/>
-                </div>
-                <div className="linked-page-summary">
-                  <h3>{me.name}</h3>
-                </div>
-                  <div className="header-btns-wrap">
-                    <button className="button-inverse-style" type="button" >
-                      Sign out
-                    </button>
-                  </div>
-                </div>
               </>
               : <>
                 <li>

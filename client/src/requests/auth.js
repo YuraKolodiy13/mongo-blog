@@ -23,3 +23,15 @@ export const getAllUsersApi = () => {
     `/users`,
   )
 };
+
+export const followUserApi = (id) => {
+  return service.post(
+    `/users/follow/${id}`,
+  )
+};
+
+export const unFollowUserApi = (id) => {
+  return service.post(
+    `/users/unfollow/${id}`,
+  )
+};

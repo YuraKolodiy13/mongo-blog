@@ -4,7 +4,7 @@ const PostSchema = new mongoose.Schema(
   {
     title: String,
     text: String,
-    author: String,
+    authorId: String,
   },
   {
     timestamps: true
