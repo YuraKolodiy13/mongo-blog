@@ -11,7 +11,7 @@ const Profile = (props) => {
 
   useEffect(() => {
     dispatch(getProfileRequest(props.match.params.id))
-  }, [dispatch]);
+  }, [dispatch, props.match.params.id]);
 
   return (
     <div className='profile'>
@@ -25,6 +25,12 @@ const Profile = (props) => {
             <h4>{item.title}</h4>
             <div dangerouslySetInnerHTML={{__html: item.text}}/>
           </div>
+        )}
+      </div>
+
+      <div className="profile__following">
+        {profile.following && profile.following.map(item =>
+          <div key={item}>{item}</div>
         )}
       </div>
 

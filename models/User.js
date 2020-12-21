@@ -5,7 +5,10 @@ const UserSchema = new mongoose.Schema(
     name: String,
     email: String,
     password: String,
-    following: Array,
+    following: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Auth"
+    }],
     followers: Array
   },
   {

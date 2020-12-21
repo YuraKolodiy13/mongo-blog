@@ -15,9 +15,9 @@ const middleware = [
 
 const store = createStore(
   createRootReducer(history),
-  composeWithDevTools(applyMiddleware(routerMiddleware(history),...middleware))
+  composeWithDevTools(applyMiddleware(routerMiddleware(history), ...middleware))
 );
 
 sagaMiddleware.run(rootSaga);
 
-export default store
+export default store;

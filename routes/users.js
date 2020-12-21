@@ -47,23 +47,25 @@ router.get('/:id', async (req, res, next) => {
 });
 
 router.post('/follow/:id', async (req, res, next) => {
-  const user = await Users.findByIdAndUpdate(req.params.id,{
-    followers: [decodeToken(req.headers)]
+  await Users.findByIdAndUpdate(req.params.id,{
+    $push: { "followers": decodeToken(req.headers)}
   });
-  const follower = await Users.findByIdAndUpdate(decodeToken(req.headers),{
-    following: [req.params.id]
+  await Users.findByIdAndUpdate(decodeToken(req.headers),{
+    $push: {"following": req.params.id}
   });
-  res.status(200).json('success')
+  const users = await Users.find({ _id: {$ne: decodeToken(req.headers)}});
+  res.status(200).json(users);
 });
 
 router.post('/unfollow/:id', async (req, res, next) => {
-  const user = await Users.findByIdAndUpdate(req.params.id,{
-    followers: []
+  await Users.findByIdAndUpdate(req.params.id,{
+    $pull: {"followers": decodeToken(req.headers)}
   });
-  const follower = await Users.findByIdAndUpdate(decodeToken(req.headers),{
-    following: []
+  await Users.findByIdAndUpdate(decodeToken(req.headers),{
+    $pull: {"following": req.params.id}
   });
-  res.status(200).json('success')
+  const users = await Users.find({ _id: {$ne: decodeToken(req.headers)}});
+  res.status(200).json(users);
 });
 
 

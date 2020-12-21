@@ -11,8 +11,6 @@ export const REGISTER_REQUEST_FAILED = 'REGISTER_REQUEST_FAILED';
 export const registerRequest = defaultActionCreator(REGISTER_REQUEST, 'data');
 
 export const LOGOUT_REQUEST = 'LOGOUT_REQUEST';
-export const LOGOUT_REQUEST_SUCCESS = 'LOGOUT_REQUEST_SUCCESS';
-export const LOGOUT_REQUEST_FAILED = 'LOGOUT_REQUEST_FAILED';
 export const logoutRequest = defaultActionCreator(LOGOUT_REQUEST, 'data');
 
 export const GET_USER_REQUEST = 'GET_USER_REQUEST';
